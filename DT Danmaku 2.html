@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8" />
+	<title>DT Danmaku 2</title>
+
+	<script src="Danmaku2BridgeMouseJavascript.js"></script>
+	<script src="Danmaku2BridgeKeyboardJavascript.js"></script>
+	<script src="Danmaku2BridgeSoundsJavascript.js"></script>
+	<script src="Danmaku2BridgeMusicJavascript.js"></script>
+	<script src="Danmaku2BridgeImagesJavascript.js"></script>
+	<script src="Danmaku2BridgeDisplayJavascript.js"></script>
+
+	<!--
+		DTDanmaku2.js and DTDanmaku2.meta.js contain the transpiled
+		C# code. We need the scripts above to be loaded first because
+		the C# code assumes the existence of the global variables
+		Danmaku2BridgeKeyboardJavascript (defined in Danmaku2BridgeKeyboardJavascript.js),
+		Danmaku2BridgeMouseJavascript (defined in Danmaku2BridgeMouseJavascript.js),
+		etc.
+	-->
+	<script src="bridge.js"></script>
+	<script src="bridge.meta.js"></script>
+	<script src="DTDanmaku2.js"></script>
+	<script src="DTDanmaku2.meta.js"></script>
+
+	<!--
+		Danmaku2InitializerJavascript.js invokes Danmaku2.Danmaku2Initializer.Start()
+		and Danmaku2.Danmaku2Initializer.ComputeAndRenderNextFrame(); these functions
+		are defined in the transpiled C# code (DTDanmaku2.js / DTDanmaku2.meta.js)
+		
+		Danmaku2InitializerJavascript.js also depends on Danmaku2FpsDisplayJavascript.js
+	-->
+	<script src="Danmaku2FpsDisplayJavascript.js"></script>
+	<script src="Danmaku2InitializerJavascript.js"></script>
+</head>
+<body>
+	<div>
+		<span id="danmaku2FpsLabel"></span><span id="danmaku2Fps"></span>
+	</div>
+	<div style="text-align:center;">
+		<canvas id="danmaku2Canvas" width="500" height="700"></canvas>
+	</div>
+</body>
+</html>
